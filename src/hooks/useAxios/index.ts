@@ -1,17 +1,29 @@
 import axios from 'axios';
 
-export const useAxios = () =>{
-    const request = ()=>{
+interface AxiosType{
+    url : string;
+    method? : "GET" | "POST" | "PUT" | "DELETE";
+    body? : object;
+    param? : object;
+}
+
+
+export const useAxios = () => {
+    const request = ({url, method="GET",  body, param} : AxiosType)=>{
         return axios ({
-            url : "",
+            url : `${import.meta.env}/${url}`,
             method,
             headers : {
                 "Content-Type" : "application/json",
             },
-            data: {},
+            data: body,
             params: {
-                accses_token : "",
+                accses_token : "64eecf3b54abde61153d1fd3",
+                ...param,
             },
+        }).then((res) => res.data.data).catch((error) =>{
+            console.log(error);
         })
-    }
-}
+    };
+    return request;
+};

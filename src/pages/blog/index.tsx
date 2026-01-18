@@ -1,8 +1,11 @@
+import Header from "../../components/header"
 
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <div>
+      <Header />
+    </div>
   )
 }
 
