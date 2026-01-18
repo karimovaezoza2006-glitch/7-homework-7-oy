@@ -1,6 +1,7 @@
 import Logo from "../../assets/img/Logo.svg";
 import { Link, useLocation } from "react-router-dom";
 import {Search, Bell}from "lucide-react"
+import Shop from "../../assets/img/Shop.svg"
 const Header = () => {
   const { pathname } = useLocation();
 
@@ -33,6 +34,8 @@ const Header = () => {
         <div className="flex items-center gap-5">
           <Search />
           <Bell />
+          <img src={Shop}/>
+          <button className="bg-main rounded-lg font-medium text-white p-[7px_12px] cursor-pointer">Login</button>
         </div>
       </div>
     </div>
